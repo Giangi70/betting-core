@@ -98,12 +98,14 @@ def generate_signals(matches: list[dict]) -> dict:
 
     safe = [
         {"match_date": e["match_date"], "home_team": e["home_team"], "away_team": e["away_team"],
-         "tipo": "safe", "esito": e["best_esito"], "quota": e["best_quota"], "prob_gap": round(e["gap"], 4)}
+         "tipo": "safe", "esito": e["best_esito"], "quota": e["best_quota"],
+         "prob": round(e["probs"][e["best_esito"]], 4), "prob_gap": round(e["gap"], 4)}
         for e in pool_safe
     ]
     jolly = [
         {"match_date": e["match_date"], "home_team": e["home_team"], "away_team": e["away_team"],
-         "tipo": "jolly", "esito": e["jolly_esito"], "quota": e["jolly_quota"], "prob_gap": round(e["gap"], 4)}
+         "tipo": "jolly", "esito": e["jolly_esito"], "quota": e["jolly_quota"],
+         "prob": round(e["probs"][e["jolly_esito"]], 4), "prob_gap": round(e["gap"], 4)}
         for e in pool_jolly
     ]
     return {"safe": safe, "jolly": jolly}
