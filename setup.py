@@ -11,5 +11,8 @@ setup(
         "scikit-learn",
         "joblib",
         "python-dotenv",
+        "requests",
+        "fastapi>=0.110",
+        "uvicorn[standard]>=0.29",
     ],
 )

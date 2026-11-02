@@ -16,6 +16,8 @@ class PredictorConfig:
         odds_api_key: API key The Odds API.
         base_dir: Directory radice del progetto.
         streamlit_port: Porta Streamlit.
+        api_port: Porta del server API FastAPI.
+        api_key: API key richiesta nell'header X-API-Key (vuota = auth disattivata).
         bookmakers: Dizionario prefisso → nome bookmaker.
     """
     name: str
@@ -26,6 +28,8 @@ class PredictorConfig:
     odds_api_key: str
     base_dir: Path
     streamlit_port: int = 8501
+    api_port: int = 8001
+    api_key: str = ""
     bookmakers: dict[str, str] = field(default_factory=lambda: {
         "B365": "Bet365",
         "WH":   "William Hill",
